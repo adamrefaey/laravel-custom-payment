@@ -1,22 +1,24 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "mustafarefaey/laravel-custom-payment",
+    "description": "",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "laravel",
+        "payment",
+        "laravel-custom-payment",
+        "mustafarefaey"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/mustafarefaey/laravel-custom-payment",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://spatie.be",
-            "role": "Developer"
+            "name": "Mustafa Refaey",
+            "email": "mustafarefaey@gmail.com",
+            "homepage": "https://www.linkedin.com/in/mustafarefaey",
+            "role": "Creator & Maintainer"
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "~7.3",
         "illuminate/contracts": "^8.0"
     },
     "require-dev": {
@@ -26,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "MustafaRefaey\\LaravelCustomPayment\\": "src",
+            "MustafaRefaey\\LaravelCustomPayment\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "MustafaRefaey\\LaravelCustomPayment\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -46,23 +48,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "MustafaRefaey\\LaravelCustomPayment\\LaravelCustomPaymentServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "LaravelCustomPayment": "MustafaRefaey\\LaravelCustomPayment\\LaravelCustomPaymentFacade"
             }
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "funding": [
-        {
-            "type": "github",
-            "url": "https://github.com/sponsors/spatie"
-        },
-        {
-            "type": "other",
-            "url": "https://spatie.be/open-source/support-us"
-        }
-    ]
+    "prefer-stable": true
 }

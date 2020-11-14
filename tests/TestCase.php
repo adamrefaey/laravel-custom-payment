@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace MustafaRefaey\LaravelCustomPayment\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use MustafaRefaey\LaravelCustomPayment\LaravelCustomPaymentServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Spatie\Skeleton\SkeletonServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -12,15 +12,15 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Spatie\\Skeleton\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
+        Factory::guessFactoryNamesUsing(function (string $modelName) {
+            return 'MustafaRefaey\\LaravelCustomPayment\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
+        });
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            SkeletonServiceProvider::class,
+            LaravelCustomPaymentServiceProvider::class,
         ];
     }
 
@@ -34,8 +34,8 @@ class TestCase extends Orchestra
         ]);
 
         /*
-        include_once __DIR__.'/../database/migrations/create_skeleton_table.php.stub';
-        (new \CreatePackageTable())->up();
-        */
+    include_once __DIR__.'/../database/migrations/create_skeleton_table.php.stub';
+    (new \CreatePackageTable())->up();
+     */
     }
 }

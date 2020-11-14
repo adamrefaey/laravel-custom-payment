@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace MustafaRefaey\LaravelCustomPayment\Tests;
 
 class ExampleTest extends TestCase
 {

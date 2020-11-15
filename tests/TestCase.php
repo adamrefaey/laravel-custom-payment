@@ -14,7 +14,7 @@ class TestCase extends Orchestra
         $this->artisan('vendor:publish', [
             '--provider' => "MustafaRefaey\LaravelCustomPayment\LaravelCustomPaymentServiceProvider",
             '--tag' => "config",
-            '--force' => true
+            '--force' => true,
         ]);
     }
 

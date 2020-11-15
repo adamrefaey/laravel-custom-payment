@@ -2,7 +2,6 @@
 
 namespace MustafaRefaey\LaravelCustomPayment\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use MustafaRefaey\LaravelCustomPayment\LaravelCustomPaymentServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -11,10 +10,6 @@ class TestCase extends Orchestra
     public function setUp(): void
     {
         parent::setUp();
-
-        Factory::guessFactoryNamesUsing(function (string $modelName) {
-            return 'MustafaRefaey\\LaravelCustomPayment\\Database\\Factories\\' . class_basename($modelName) . 'Factory';
-        });
     }
 
     protected function getPackageProviders($app)

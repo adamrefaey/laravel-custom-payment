@@ -28,8 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MustafaRefaey\\LaravelCustomPayment\\": "src",
-            "MustafaRefaey\\LaravelCustomPayment\\Database\\Factories\\": "database/factories"
+            "MustafaRefaey\\LaravelCustomPayment\\": "src"
         }
     },
     "autoload-dev": {

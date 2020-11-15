@@ -10,6 +10,12 @@ class TestCase extends Orchestra
     public function setUp(): void
     {
         parent::setUp();
+
+        $this->artisan('vendor:publish', [
+            '--provider' => "MustafaRefaey\LaravelCustomPayment\LaravelCustomPaymentServiceProvider",
+            '--tag' => "config",
+            '--force' => true
+        ]);
     }
 
     protected function getPackageProviders($app)

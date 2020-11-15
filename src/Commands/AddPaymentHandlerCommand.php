@@ -25,7 +25,7 @@ class AddPaymentHandlerCommand extends Command
         $handlerStub = str_replace('{{ namespace }}', config('core-config.handlers_namespace'), $handlerStub);
         $handlerStub = str_replace('{{ class }}', $class, $handlerStub);
 
-        if (!is_dir(base_path(config('core-config.handlers_directory')))) {
+        if (! is_dir(base_path(config('core-config.handlers_directory')))) {
             mkdir(base_path(config('core-config.handlers_directory')), 0777, true);
         }
 

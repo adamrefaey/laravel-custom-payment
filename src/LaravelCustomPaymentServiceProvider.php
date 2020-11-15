@@ -3,7 +3,7 @@
 namespace MustafaRefaey\LaravelCustomPayment;
 
 use Illuminate\Support\ServiceProvider;
-use MustafaRefaey\LaravelCustomPayment\Commands\LaravelCustomPaymentCommand;
+use MustafaRefaey\LaravelCustomPayment\Commands\AddPaymentHandlerCommand;
 
 class LaravelCustomPaymentServiceProvider extends ServiceProvider
 {
@@ -14,19 +14,15 @@ class LaravelCustomPaymentServiceProvider extends ServiceProvider
                 __DIR__ . '/../config/laravel-custom-payment.php' => config_path('laravel-custom-payment.php'),
             ], 'config');
 
-            $this->publishes([
-                __DIR__ . '/../resources/views' => base_path('resources/views/vendor/laravel-custom-payment'),
-            ], 'views');
-
             $migrationFileName = 'create_laravel_custom_payment_table.php';
-            if (! $this->migrationFileExists($migrationFileName)) {
+            if (!$this->migrationFileExists($migrationFileName)) {
                 $this->publishes([
                     __DIR__ . "/../database/migrations/{$migrationFileName}.stub" => database_path('migrations/' . date('Y_m_d_His', time()) . '_' . $migrationFileName),
                 ], 'migrations');
             }
 
             $this->commands([
-                LaravelCustomPaymentCommand::class,
+                AddPaymentHandlerCommand::class,
             ]);
         }
 

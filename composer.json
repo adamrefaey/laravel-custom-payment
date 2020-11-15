@@ -48,10 +48,7 @@
         "laravel": {
             "providers": [
                 "MustafaRefaey\\LaravelCustomPayment\\LaravelCustomPaymentServiceProvider"
-            ],
-            "aliases": {
-                "LaravelCustomPayment": "MustafaRefaey\\LaravelCustomPayment\\LaravelCustomPaymentFacade"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

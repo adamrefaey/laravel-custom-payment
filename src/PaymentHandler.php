@@ -1,8 +1,10 @@
 <?php
-namespace {{ namespace }};
-use MustafaRefaey\LaravelCustomPayment\PaymentOrder;
 
-class {{ class }} implements \MustafaRefaey\LaravelCustomPayment\PaymentHandler
+namespace MustafaRefaey\LaravelCustomPayment;
+
+use Exception;
+
+interface PaymentHandler
 {
     /**
      * @param PaymentOrder $paymenOrder The payment order calling this method,
@@ -13,13 +15,7 @@ class {{ class }} implements \MustafaRefaey\LaravelCustomPayment\PaymentHandler
      * @return string This method must return the external ID of the order,
      *                      so the order can be verified later using it.
      */
-    public static function createOrder(PaymentOrder $paymenOrder, array $payload = []): string
-    {
-        // make the API call
-
-        // return the payment gateway's order ID, to be used later in verifying the order
-        return "";
-    }
+    public static function createOrder(PaymentOrder $paymenOrder, array $payload = []): string;
 
 
     /**
@@ -28,10 +24,5 @@ class {{ class }} implements \MustafaRefaey\LaravelCustomPayment\PaymentHandler
      *
      * @return bool This method must return true if the order is verified, or false if not.
      */
-    public static function verifyOrder(string $externalId, array $payload = []): bool
-    {
-        // make the API call
-
-        return true;
-    }
+    public static function verifyOrder(string $externalId, array $payload = []): bool;
 }

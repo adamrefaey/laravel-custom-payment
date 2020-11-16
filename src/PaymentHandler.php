@@ -17,7 +17,6 @@ interface PaymentHandler
      */
     public static function createOrder(PaymentOrder $paymenOrder, array $payload = []): string;
 
-
     /**
      * @param string $externalId The external ID of the order.
      * @param array $payload extra data passed to this method, in case it needed any.

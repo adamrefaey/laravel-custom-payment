@@ -25,7 +25,7 @@ class AddPaymentHandlerCommand extends Command
         $handlerStub = str_replace('{{ namespace }}', $paymentConfig['handlers_namespace'], $handlerStub);
         $handlerStub = str_replace('{{ class }}', $class, $handlerStub);
 
-        if (!is_dir(base_path($paymentConfig['handlers_directory']))) {
+        if (! is_dir(base_path($paymentConfig['handlers_directory']))) {
             mkdir(base_path($paymentConfig['handlers_directory']), 0777, true);
         }
 

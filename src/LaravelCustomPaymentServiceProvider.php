@@ -3,6 +3,7 @@
 namespace MustafaRefaey\LaravelCustomPayment;
 
 use Illuminate\Support\ServiceProvider;
+use MustafaRefaey\LaravelCustomPayment\Commands\AddPaymentActionCommand;
 use MustafaRefaey\LaravelCustomPayment\Commands\AddPaymentHandlerCommand;
 
 class LaravelCustomPaymentServiceProvider extends ServiceProvider
@@ -23,6 +24,7 @@ class LaravelCustomPaymentServiceProvider extends ServiceProvider
 
             $this->commands([
                 AddPaymentHandlerCommand::class,
+                AddPaymentActionCommand::class,
             ]);
         }
 

@@ -12,4 +12,17 @@ class AddPaymentActionCommandTest extends TestCase
     {
         $this->artisan("payment:add-action")->assertExitCode(0);
     }
+
+    /** @test */
+    public function add_payment_action_command_should_add_an_entry_in_config()
+    {
+        $name = 'some_payment_action';
+        $class = 'SomePaymentAction';
+        $this->artisan("payment:add-action", ['--name' => $name, '--class' => $class])->assertExitCode(0);
+
+        $paymentConfig = require config_path('laravel-custom-payment.php');
+        $actionsNamespace = $paymentConfig['actions_namespace'];
+        $this->assertArrayHasKey($name, $paymentConfig['actions']);
+        $this->assertEquals($actionsNamespace . "\\" . $class, $paymentConfig['actions'][$name]);
+    }
 }

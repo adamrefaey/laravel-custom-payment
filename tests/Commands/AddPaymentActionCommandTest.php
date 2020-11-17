@@ -36,4 +36,22 @@ class AddPaymentActionCommandTest extends TestCase
         $paymentConfig = require config_path('laravel-custom-payment.php');
         $this->assertFileExists(base_path($paymentConfig['actions_directory'] . '/' . $class . '.php'));
     }
+
+    /** @test */
+    public function add_payment_action_command_should_scaffold_a_class_implements_actions_interface()
+    {
+        $name = 'some_payment_action';
+        $class = 'SomePaymentAction';
+        $this->artisan("payment:add-action", ['--name' => $name, '--class' => $class])->assertExitCode(0);
+
+        $paymentConfig = require config_path('laravel-custom-payment.php');
+        $actionClassPath = base_path($paymentConfig['actions_directory'] . '/' . $class . '.php');
+        $this->assertFileExists($actionClassPath);
+
+        require $actionClassPath;
+        $fullClass = '\\' . $paymentConfig['actions_namespace'] . '\\' . $class;
+        $actionReflection = new ReflectionClass($fullClass);
+
+        $this->assertTrue($actionReflection->implementsInterface('MustafaRefaey\\LaravelCustomPayment\\PaymentAction'));
+    }
 }

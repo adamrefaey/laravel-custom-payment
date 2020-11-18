@@ -41,4 +41,19 @@ class PaymentOrderTest extends TestCase
         $order = PaymentOrder::create($paymentHandlerName, $action);
         $this->assertInstanceOf(PaymentOrder::class, $order);
     }
+
+    /** @test */
+    public function action_must_be_authorized()
+    {
+        $paymentHandlerName = "some_payment_handler";
+        $paymentActionName = "some_payment_action";
+        $paymentConfig = require config_path('laravel-custom-payment.php');
+        $actionClass = $paymentConfig['actions'][$paymentActionName];
+
+        $this->mock($actionClass, function ($mock) use ($paymentHandlerName) {
+            $mock->shouldReceive('authorize')->once();
+
+            $order = PaymentOrder::create($paymentHandlerName, $mock);
+        });
+    }
 }

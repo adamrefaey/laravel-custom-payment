@@ -3,7 +3,6 @@
 namespace MustafaRefaey\LaravelCustomPayment\Tests\Commands;
 
 use MustafaRefaey\LaravelCustomPayment\Tests\TestCase;
-use ReflectionClass;
 
 class AddPaymentActionCommandTest extends TestCase
 {
@@ -50,8 +49,8 @@ class AddPaymentActionCommandTest extends TestCase
 
         require $actionClassPath;
         $fullClass = '\\' . $paymentConfig['actions_namespace'] . '\\' . $class;
-        $actionReflection = new ReflectionClass($fullClass);
+        $action = new $fullClass();
 
-        $this->assertTrue($actionReflection->implementsInterface('MustafaRefaey\\LaravelCustomPayment\\PaymentAction'));
+        $this->assertEquals('MustafaRefaey\\LaravelCustomPayment\\PaymentAction', get_parent_class($action));
     }
 }

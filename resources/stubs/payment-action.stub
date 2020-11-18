@@ -1,5 +1,39 @@
 <?php
 namespace {{ namespace }};
-class {{ class }}
+use MustafaRefaey\LaravelCustomPayment\PaymentOrder;
+
+class {{ class }} extends \MustafaRefaey\LaravelCustomPayment\PaymentAction
 {
+    /**
+     * @return bool If the user authorized to pay for this action
+     */
+    public function authorize(): bool
+    {
+        // here you must implement the authorization logic
+        // of this action
+
+        return true;
+    }
+
+    /**
+     * @return int The amount needed to pay for this action
+     */
+    public function getAmount(): int
+    {
+        // here you must implement the logic needed to calculate/get
+        // the amount required for this action
+
+        return 0;
+    }
+
+    /**
+     * This method is executed, once the payment order is verified
+     *
+     * @param PaymentOrder $paymentOrder The payment order of this action
+     * @throws Exception This method must throw an exception if executing the action failed
+     */
+    public function exec(PaymentOrder $paymentOrder)
+    {
+        // here you must implement the logic of the action to be executed
+    }
 }
